@@ -1,0 +1,36 @@
+{% extends 'base.html' %} {% block title %}  Student Detail {% endblock title %}
+{%block content %}
+
+<div class="container-lg ">
+  <h2>Student Details</h2>
+<div  class="form-container  ">
+
+  <p><strong>Student ID:</strong> {{ student.id }}</p>
+  <p><strong>Name:</strong> {{ student.name }}</p>
+  <p><strong>Email:</strong> {{ student.email }}</p>
+  <p><strong>Date of Birth:</strong> {{ student.date_of_birth }}</p>
+
+</div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Course</th>
+        <th scope="col">Enrollment Date</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in student.courses.all %}
+      <tr>
+        <td>{{ item.name }}</td>
+        <td>{{ item.enrollment_date }}</td>
+        <td>{{ item.status }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <p><a href="{% url 'student_list' %}" class="button-link">Student List</a></p>
+</div>
+
+{% endblock content %}

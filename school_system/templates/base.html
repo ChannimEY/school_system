@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <title>{% block title %}School System{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="left">School System</div>
+      <div class="center">
+        <a href="">Dashboard</a>
+        <a href="{% url 'student_list' %}">Student</a>
+        <a href="{% url 'employee_list' %}">Employee</a>
+        <a href="{% url 'teacher_list' %}">Teacher</a>
+        <a href="">Course</a>
+        <a href="">Enrollment</a>
+
+      </div>
+      <div class="right">
+        <a href="{% url 'logout' %}">Logout</a>
+      </div>
+    </div>
+
+    <div class="container">{% block content %}{% endblock %}</div>
+  </body>
+</html>
